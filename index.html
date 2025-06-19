@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez la nouvelle collection de vêtements tendance de notre boutique en ligne. Livraison rapide et retours gratuits.">
+    <title>Accueil - Fashion Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/accueil.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        /* Styles de la barre de navigation */
+        .navbar {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 0 20px;
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.8rem;
+            color: #ff6b6b;
+        }
+
+        /* Liens de navigation */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            position: relative;
+            margin: 0 10px;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #ff6b6b;
+        }
+
+        /* Menu déroulant */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+        }
+
+        .dropdown-menu a {
+            padding: 10px 20px;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f8f9fa;
+        }
+
+        /* Icônes d'action */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-icon {
+            background: none;
+            border: none;
+            color: #333;
+            font-size: 1.2rem;
+            margin-left: 15px;
+            cursor: pointer;
+            position: relative;
+            padding: 5px;
+        }
+
+        .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #ff6b6b;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Menu mobile */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* Styles responsifs */
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #fff;
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 5px 0;
+                text-align: center;
+            }
+
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                display: none;
+                padding: 0;
+                margin-top: 5px;
+            }
+
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-tshirt"></i>
+                <span>Fashion Store</span>
+            </a>
+            
+            <!-- Bouton menu mobile -->
+            <button class="menu-toggle" id="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- Liens de navigation -->
+            <ul class="nav-links" id="main-nav">
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="a-propos.html">À propos</a></li>
+                <li class="dropdown">
+                    <a href="boutique.html">Boutique <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="boutique.html?category=hommes">Hommes</a></li>
+                        <li><a href="boutique.html?category=femmes">Femmes</a></li>
+                        <li><a href="boutique.html?category=enfants">Enfants</a></li>
+                        <li><a href="boutique.html?category=nouveautes">Nouveautés</a></li>
+                        <li><a href="boutique.html?category=promotions">Promotions</a></li>
+                    </ul>
+                </li>
+                <li><a href="services.html">Services client</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <!-- Icônes d'action -->
+            <div class="nav-actions">
+                <button class="btn-icon" aria-label="Favoris">
+                    <i class="far fa-heart"></i>
+                    <span class="badge">0</span>
+                </button>
+                <button class="btn-icon" aria-label="Panier">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+
+    <main>
+        <section class="hero">
+            <h1>Bienvenue dans notre boutique de vêtements</h1>
+            <p>Découvrez notre nouvelle collection printemps/été 2024</p>
+            <a href="boutique.html" class="cta-button">Voir la collection</a>
+        </section>
+
+        <!-- Nouveautés -->
+        <section class="new-products">
+            <div class="section-header">
+                <h2>Nos Nouveautés</h2>
+                <p>Découvrez nos dernières arrivées</p>
+            </div>
+            <div class="products-grid">
+                <!-- Produit 1 -->
+                <div class="product-card">
+                    <div class="product-badge new">Nouveau</div>
+                    <img src="/images/tshirt.jpg"Nouveau T-shirt">
+                    <div class="product-info">
+                        <h3>T-shirt Élégant</h3>
+                        <p class="price">29,99 €</p>
+                        <button>Voir le produit</button>
+                    </div>
+                </div>
+                <!-- Produit 2 -->
+                <div class="product-card">
+                    <div class="product-badge new">Nouveau</div>
+                    <img src="/images/pentalon.jpg" alt="Nouveau Pantalon">
+                    <div class="product-info">
+                        <h3>Pantalon Droit</h3>
+                        <p class="price">59,99 €</p>
+                        <button>Voir le produit</button>
+                    </div>
+                </div>
+                <!-- Produit 3 -->
+                <div class="product-card">
+                    <div class="product-badge new">Nouveau</div>
+                    <img src="/images/robes.jpg" alt="Nouvelle Robe">
+                    <div class="product-info">
+                        <h3>Robe d'Été</h3>
+                        <p class="price">49,99 €</p>
+                        <button>Voir le produit</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meilleures ventes -->
+        <section class="bestsellers">
+            <div class="section-header">
+                <h2>Meilleures Ventes</h2>
+                <p>Les préférés de nos clients</p>
+            </div>
+            <div class="products-grid">
+                <!-- Produit 1 -->
+                <div class="product-card">
+                    <div class="product-badge bestseller">Best-seller</div>
+                    <img src="/images/pentalon.jpg" alt="Jean Slim">
+                    <div class="product-info">
+                        <h3>Jean Slim Noir</h3>
+                        <p class="price">69,99 €</p>
+                        <button>Voir le produit</button>
+                    </div>
+                </div>
+                <!-- Produit 2 -->
+                <div class="product-card">
+                    <div class="product-badge bestseller">Best-seller</div>
+                    <img src="/images/vestes.jpg" alt="Veste en Jean">
+                    <div class="product-info">
+                        <h3>Veste Dénim</h3>
+                        <p class="price">79,99 €</p>
+                        <button>Voir le produit</button>
+                    </div>
+                </div>
+                <!-- Produit 3 -->
+                <div class="product-card">
+                    <div class="product-badge bestseller">Best-seller</div>
+                    <img src="/images/robes.jpg" alt="Robe Midi">
+                    <div class="product-info">
+                        <h3>Robe Midi Fleurie</h3>
+                        <p class="price">54,99 €</p>
+                        <button>Voir le produit</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="newsletter-content">
+                <h2>Inscrivez-vous à notre newsletter</h2>
+                <p>Recevez 10% de réduction sur votre première commande et soyez informé(e) de nos offres exclusives</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Votre adresse email" required>
+                    <button type="submit">S'inscrire</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <!-- Colonne 1 : À propos -->
+            <div class="footer-section">
+                <h3>À propos de nous</h3>
+                <p>Fashion Store est votre destination mode en ligne, offrant les dernières tendances à des prix accessibles depuis 2020.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+
+            <!-- Colonne 2 : Liens rapides -->
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="boutique.html">Boutique</a></li>
+                    <li><a href="a-propos.html">À propos</a></li>
+                    <li><a href="services.html">Services client</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Nouveautés</a></li>
+                    <li><a href="#">Meilleures ventes</a></li>
+                </ul>
+            </div>
+
+            <!-- Colonne 3 : Contact et mentions légales -->
+            <div class="footer-section">
+                <h3>Contact & Infos</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Rue de la Mode, 75001 Paris</p>
+                    <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+                    <p><i class="fas fa-envelope"></i> contact@fashionstore.com</p>
+                </div>
+                <div class="legal-links">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">CGV</a>
+                    <a href="#">CGU</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Fashion Store. Tous droits réservés.</p>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa" title="Visa"></i>
+                <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                <i class="fab fa-cc-paypal" title="PayPal"></i>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts JavaScript -->
+    <script src="js/include-navbar.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

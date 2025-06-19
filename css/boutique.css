@@ -1,0 +1,411 @@
+/* Styles spécifiques à la page Boutique */
+main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+h1 {
+    text-align: center;
+    color: #1d3557;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #e63946, #ff7aa2);
+    border-radius: 2px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin: 3rem 0;
+}
+
+.product-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid #eee;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.product-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #e63946;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 1;
+}
+
+.product-badge.new {
+    background: #4cc9f0;
+}
+
+.product-badge.sale {
+    background: #f72585;
+}
+
+.product-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 1.8rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-category {
+    color: #6c757d;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.product-info h3 {
+    margin: 0 0 0.8rem;
+    color: #1d3557;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.product-info .price {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #e63946;
+    margin-bottom: 1.2rem;
+}
+
+.product-info .old-price {
+    text-decoration: line-through;
+    color: #adb5bd;
+    font-size: 1.1rem;
+    margin-left: 0.5rem;
+}
+
+.product-actions {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+}
+
+.product-card button {
+    flex: 1;
+    padding: 0.8rem;
+    background-color: #1d3557;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.product-card button i {
+    font-size: 1.1rem;
+}
+
+.product-card button.primary {
+    background: linear-gradient(135deg, #e63946, #ff7aa2);
+}
+
+.product-card button.secondary {
+    background: transparent;
+    border: 1px solid #1d3557;
+    color: #1d3557;
+}
+
+.product-card button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-card button.primary:hover {
+    background: linear-gradient(135deg, #d62839, #e56b8f);
+}
+
+.product-card button.secondary:hover {
+    background: #f8f9fa;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 4rem 0 2rem;
+    gap: 0.5rem;
+}
+
+.pagination a, .pagination span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    color: #1d3557;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 1px solid #dee2e6;
+}
+
+.pagination a:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+}
+
+.pagination .active {
+    background: #1d3557;
+    color: white;
+    border-color: #1d3557;
+}
+
+.pagination .disabled {
+    color: #adb5bd;
+    pointer-events: none;
+}
+
+/* Filtres */
+.filters {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 3rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.filter-group {
+    margin-bottom: 1.5rem;
+}
+
+.filter-group h3 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #1d3557;
+}
+
+.filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.filter-option {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 30px;
+    padding: 0.6rem 1.4rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #495057;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-right: 0.8rem;
+    margin-bottom: 0.8rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0.4));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.filter-option:hover::before {
+    opacity: 1;
+}
+
+/* Style pour chaque bouton de catégorie spécifique */
+.filter-option[data-filter="all"] {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    border-color: #6a11cb;
+}
+
+.filter-option[data-filter="new"] {
+    background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
+    color: white;
+    border-color: #00b4db;
+}
+
+.filter-option[data-filter="bestsellers"] {
+    background: linear-gradient(135deg, #f46b45 0%, #eea849 100%);
+    color: white;
+    border-color: #f46b45;
+}
+
+.filter-option[data-filter="sale"] {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+    border-color: #11998e;
+}
+
+/* Style actif et survol */
+.filter-option.active,
+.filter-option:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    border-color: transparent;
+}
+
+.filter-option[data-filter="all"].active,
+.filter-option[data-filter="all"]:hover {
+    background: linear-gradient(135deg, #5a0cb3 0%, #1a5fd9 100%);
+}
+
+.filter-option[data-filter="new"].active,
+.filter-option[data-filter="new"]:hover {
+    background: linear-gradient(135deg, #0099c7 0%, #006d91 100%);
+}
+
+.filter-option[data-filter="bestsellers"].active,
+.filter-option[data-filter="bestsellers"]:hover {
+    background: linear-gradient(135deg, #e05c2b 0%, #d49130 100%);
+}
+
+.filter-option[data-filter="sale"].active,
+.filter-option[data-filter="sale"]:hover {
+    background: linear-gradient(135deg, #0f7f74 0%, #2bc253 100%);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    gap: 0.5rem;
+}
+
+.pagination a,
+.pagination span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    background: white;
+    color: #1d3557;
+    text-decoration: none;
+    border: 1px solid #dee2e6;
+    transition: all 0.3s ease;
+}
+
+.pagination a:hover,
+.pagination .current {
+    background-color: #e63946;
+    color: white;
+    border-color: #e63946;
+}
+
+/* Bannière de la boutique */
+.shop-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 6rem 2rem;
+    border-radius: 8px;
+    margin-bottom: 3rem;
+}
+
+.shop-banner h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.shop-banner p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    color: #e9ecef;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .products {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .products {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .shop-banner p {
+        font-size: 1rem;
+    }
+    
+    .filter-options {
+        gap: 0.5rem;
+    }
+    
+    .filter-option {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}

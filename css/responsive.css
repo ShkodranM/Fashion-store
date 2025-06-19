@@ -1,0 +1,155 @@
+/*
+  Breakpoints :
+  - Mobile : < 768px
+  - Tablet : 768px - 1023px
+  - Desktop : ≥ 1024px
+*/
+
+/* ===== Styles pour tablettes (768px - 1023px) ===== */
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Ajustements généraux */
+    body {
+        font-size: 15px;
+    }
+    
+    /* Header et navigation */
+    nav {
+        padding: 0.5rem 3%;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    /* Conteneurs */
+    .container {
+        padding: 0 20px;
+    }
+    
+    /* Grille de produits */
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+    
+    .footer-section:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ===== Styles pour mobiles (< 768px) ===== */
+@media (max-width: 767px) {
+    /* Ajustements généraux */
+    body {
+        font-size: 14px;
+        padding-top: 60px; /* Ajustement pour la hauteur du header mobile */
+    }
+    
+    /* Header et navigation */
+    nav {
+        padding: 0.5rem 15px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .logo {
+        margin-bottom: 10px;
+    }
+    
+    .nav-links {
+        display: none; /* Menu caché par défaut sur mobile */
+        width: 100%;
+    }
+    
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        cursor: pointer;
+    }
+    
+    /* Conteneurs */
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Grille de produits */
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    /* Cartes de produits */
+    .product-card {
+        margin-bottom: 20px;
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    /* Formulaire de contact */
+    .contact-form {
+        padding: 20px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .form-group {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    /* Boutons */
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* ===== Styles pour très petits écrans (< 400px) ===== */
+@media (max-width: 400px) {
+    /* Ajustements supplémentaires pour les très petits écrans */
+    body {
+        font-size: 13px;
+    }
+    
+    .btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    /* Ajustement des marges et paddings */
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.3rem; }
+    
+    /* Ajustement des tailles de texte */
+    p, li, a, button {
+        font-size: 0.9rem;
+    }
+}

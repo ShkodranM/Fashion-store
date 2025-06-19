@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez nos services clients : livraison rapide, paiement sécurisé, SAV et retours faciles. Nous sommes là pour vous aider !">
+    <title>Services Client - Fashion Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/services.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    
+    <!-- Styles de la barre de navigation -->
+    <style>
+        /* Styles de la barre de navigation */
+        .navbar {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 0 20px;
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.8rem;
+            color: #ff6b6b;
+        }
+
+        /* Liens de navigation */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            position: relative;
+            margin: 0 10px;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #ff6b6b;
+        }
+
+        /* Menu déroulant */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+        }
+
+        .dropdown-menu a {
+            padding: 10px 20px;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f8f9fa;
+        }
+
+        /* Icônes d'action */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-icon {
+            background: none;
+            border: none;
+            color: #333;
+            font-size: 1.2rem;
+            margin-left: 15px;
+            cursor: pointer;
+            position: relative;
+            padding: 5px;
+        }
+
+        .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #ff6b6b;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Menu mobile */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* Styles responsifs */
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #fff;
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 5px 0;
+                text-align: center;
+            }
+
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                display: none;
+                padding: 0;
+                margin-top: 5px;
+            }
+
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-tshirt"></i>
+                <span>Fashion Store</span>
+            </a>
+            
+            <!-- Bouton menu mobile -->
+            <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- Liens de navigation -->
+            <ul class="nav-links" id="main-nav">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="a-propos.html">À propos</a></li>
+                <li class="dropdown">
+                    <a href="boutique.html">Boutique <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="boutique.html?category=hommes">Hommes</a></li>
+                        <li><a href="boutique.html?category=femmes">Femmes</a></li>
+                        <li><a href="boutique.html?category=enfants">Enfants</a></li>
+                        <li><a href="boutique.html?category=nouveautes">Nouveautés</a></li>
+                        <li><a href="boutique.html?category=promotions">Promotions</a></li>
+                    </ul>
+                </li>
+                <li><a href="services.html">Services client</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <!-- Icônes d'action -->
+            <div class="nav-actions">
+                <button class="btn-icon" aria-label="Favoris">
+                    <i class="far fa-heart"></i>
+                    <span class="badge">0</span>
+                </button>
+                <button class="btn-icon" aria-label="Panier">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <div style="margin-top: 80px;"> <!-- Marge pour compenser la navbar fixe -->
+
+    <main>
+        <!-- Bannière d'en-tête -->
+        <section class="services-hero">
+            <h1>Nos Services Client</h1>
+            <p>Chez Fashion Store, nous nous engageons à vous offrir la meilleure expérience d'achat possible. Découvrez nos services conçus pour vous simplifier la vie.</p>
+        </section>
+
+        <!-- Grille des services -->
+        <div class="services-container">
+            <!-- Service de Livraison -->
+            <div class="service-card livraison">
+                <div class="service-header">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h2>Livraison Rapide & Sécurisée</h2>
+                </div>
+                <div class="service-content">
+                    <p>Profitez d'une livraison rapide et sécurisée partout en France métropolitaine et en Europe.</p>
+                    <ul class="service-features">
+                        <li>Livraison en 24/48h en France métropolitaine</li>
+                        <li>Suivi de commande en temps réel</li>
+                        <li>Livraison express disponible</li>
+                        <li>Points relais et livraison à domicile</li>
+                    </ul>
+                    <button class="service-cta">Voir les options de livraison</button>
+                </div>
+            </div>
+
+            <!-- Service de Paiement -->
+            <div class="service-card paiement">
+                <div class="service-header">
+                    <div class="service-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h2>Paiement Sécurisé</h2>
+                </div>
+                <div class="service-content">
+                    <p>Paiement 100% sécurisé avec les méthodes de paiement les plus fiables.</p>
+                    <ul class="service-features">
+                        <li>Paiement par carte bancaire (CB, Visa, Mastercard)</li>
+                        <li>Paiement en plusieurs fois sans frais</li>
+                        <li>PayPal accepté</li>
+                        <li>Paiement sécurisé SSL</li>
+                    </ul>
+                    <button class="service-cta">En savoir plus sur les paiements</button>
+                </div>
+            </div>
+
+            <!-- Service SAV -->
+            <div class="service-card sav">
+                <div class="service-header">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h2>Service Après-Vente</h2>
+                </div>
+                <div class="service-content">
+                    <p>Notre équipe est là pour vous accompagner après votre achat.</p>
+                    <ul class="service-features">
+                        <li>Assistance téléphonique du lundi au samedi</li>
+                        <li>Réponse sous 24h par email</li>
+                        <li>Service de réparation et d'entretien</li>
+                        <li>Garantie jusqu'à 2 ans sur nos produits</li>
+                    </ul>
+                    <button class="service-cta">Contacter le SAV</button>
+                </div>
+            </div>
+
+            <!-- Service Retours -->
+            <div class="service-card retours">
+                <div class="service-header">
+                    <div class="service-icon">
+                        <i class="fas fa-undo-alt"></i>
+                    </div>
+                    <h2>Retours Faciles</h2>
+                </div>
+                <div class="service-content">
+                    <p>Vous n'êtes pas satisfait ? Retournez facilement votre commande.</p>
+                    <ul class="service-features">
+                        <li>30 jours pour changer d'avis</li>
+                        <li>Retours gratuits en point relais</n                    </ul>
+                    <button class="service-cta">Procéder à un retour</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section FAQ -->
+        <section class="faq-section">
+            <h2>Questions Fréquentes</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quels sont les délais de livraison ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Les délais de livraison varient en fonction de votre localisation et du mode de livraison choisi. En France métropolitaine, comptez généralement 24 à 48h pour une livraison standard. Les délais peuvent être plus longs pour les destinations ultramarines et internationales.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Comment suivre ma commande ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Dès que votre commande est expédiée, vous recevrez un email avec un numéro de suivi. Vous pourrez suivre l'acheminement de votre colis directement sur le site du transporteur ou dans votre espace client.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quelle est votre politique de retour ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Vous disposez de 30 jours à compter de la réception de votre commande pour nous retourner les articles qui ne vous conviennent pas. Les articles doivent être retournés dans leur état d'origine, non portés, non lavés et avec leurs étiquettes. Les frais de retour sont à votre charge, sauf en cas d'erreur de notre part ou de produit défectueux.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quels moyens de paiement acceptez-vous ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nous acceptons les cartes bancaires (CB, Visa, Mastercard), PayPal, ainsi que les virements bancaires. Tous les paiements sont sécurisés par un cryptage SSL.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <!-- Colonne 1 : À propos -->
+            <div class="footer-section">
+                <h3>À propos de nous</h3>
+                <p>Fashion Store est votre destination mode en ligne, offrant les dernières tendances à des prix accessibles depuis 2020.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+
+            <!-- Colonne 2 : Liens rapides -->
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="boutique.html">Boutique</a></li>
+                    <li><a href="a-propos.html">À propos</a></li>
+                    <li><a href="services.html">Services client</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Nouveautés</a></li>
+                    <li><a href="#">Meilleures ventes</a></li>
+                </ul>
+            </div>
+
+            <!-- Colonne 3 : Contact et mentions légales -->
+            <div class="footer-section">
+                <h3>Contact & Infos</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Rue de la Mode, 75001 Paris</p>
+                    <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+                    <p><i class="fas fa-envelope"></i> contact@fashionstore.com</p>
+                </div>
+                <div class="legal-links">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">CGV</a>
+                    <a href="#">CGU</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Fashion Store. Tous droits réservés.</p>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa" title="Visa"></i>
+                <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                <i class="fab fa-cc-paypal" title="PayPal"></i>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts JavaScript -->
+    <script src="js/include-navbar.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/services.js"></script>
+    </div>
+    
+</body>
+</html>

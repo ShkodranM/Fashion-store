@@ -1,0 +1,311 @@
+<!-- Styles de la barre de navigation -->
+<style>
+    /* Styles de la barre de navigation */
+    .navbar {
+        background-color: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        padding: 0 20px;
+    }
+
+    .navbar-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+    }
+
+    /* Logo */
+    .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #333;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .logo i {
+        margin-right: 10px;
+        font-size: 1.8rem;
+        color: #ff6b6b;
+    }
+
+    /* Liens de navigation */
+    .nav-links {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links li {
+        position: relative;
+        margin: 0 10px;
+    }
+
+    .nav-links a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 10px 15px;
+        display: block;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        color: #ff6b6b;
+    }
+
+    /* Menu déroulant */
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        min-width: 200px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 10px 0;
+        z-index: 1000;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu li {
+        margin: 0;
+    }
+
+    .dropdown-menu a {
+        padding: 10px 20px;
+    }
+
+    .dropdown-menu a:hover {
+        background-color: #f8f9fa;
+    }
+
+    /* Icônes d'action */
+    .nav-actions {
+        display: flex;
+        align-items: center;
+    }
+
+    .btn-icon {
+        background: none;
+        border: none;
+        color: #333;
+        font-size: 1.2rem;
+        margin-left: 15px;
+        cursor: pointer;
+        position: relative;
+        padding: 5px;
+    }
+
+    .badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: #ff6b6b;
+        color: white;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        font-size: 0.7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Menu mobile */
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #333;
+    }
+
+    /* Styles responsifs */
+    @media (max-width: 992px) {
+        .menu-toggle {
+            display: block;
+        }
+
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            flex-direction: column;
+            padding: 20px 0;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 5px 0;
+            text-align: center;
+        }
+
+        .dropdown-menu {
+            position: static;
+            box-shadow: none;
+            display: none;
+            padding: 0;
+            margin-top: 5px;
+        }
+
+        .dropdown.active .dropdown-menu {
+            display: block;
+        }
+    }
+</style>
+
+<!-- HTML de la barre de navigation -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="index.html" class="logo">
+            <i class="fas fa-tshirt"></i>
+            <span>Fashion Store</span>
+        </a>
+        
+        <!-- Bouton menu mobile -->
+        <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <!-- Liens de navigation -->
+        <ul class="nav-links" id="main-nav">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li class="dropdown">
+                <a href="boutique.html">Boutique <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="boutique.html?category=hommes">Hommes</a></li>
+                    <li><a href="boutique.html?category=femmes">Femmes</a></li>
+                    <li><a href="boutique.html?category=enfants">Enfants</a></li>
+                    <li><a href="boutique.html?category=nouveautes">Nouveautés</a></li>
+                    <li><a href="boutique.html?category=promotions">Promotions</a></li>
+                </ul>
+            </li>
+            <li><a href="services.html">Services client</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        
+        <!-- Icônes d'action -->
+        <div class="nav-actions">
+            <button class="btn-icon" aria-label="Favoris">
+                <i class="far fa-heart"></i>
+                <span class="badge">0</span>
+            </button>
+            <button class="btn-icon" aria-label="Panier">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="badge">0</span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Script de la barre de navigation -->
+<script>
+    // Gestion de la barre de navigation
+    document.addEventListener('DOMContentLoaded', function() {
+        // Éléments du DOM
+        const menuToggle = document.getElementById('mobile-menu-toggle');
+        const navLinks = document.getElementById('main-nav');
+        const dropdowns = document.querySelectorAll('.dropdown');
+        
+        // Fonction pour fermer tous les menus déroulants
+        function closeAllDropdowns() {
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        }
+        
+        // Toggle du menu mobile
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navLinks.classList.toggle('active');
+                closeAllDropdowns();
+            });
+        }
+        
+        // Gestion des menus déroulants
+        dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('a');
+            
+            // Pour les écrans mobiles
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                    
+                    // Fermer les autres menus déroulants
+                    dropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Fermer le menu quand on clique en dehors
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.navbar-container')) {
+                navLinks.classList.remove('active');
+                closeAllDropdowns();
+            }
+        });
+        
+        // Gestion du redimensionnement de la fenêtre
+        function handleResize() {
+            if (window.innerWidth > 992) {
+                navLinks.style.display = 'flex';
+            } else {
+                navLinks.style.display = '';
+                if (!navLinks.classList.contains('active')) {
+                    closeAllDropdowns();
+                }
+            }
+        }
+        
+        window.addEventListener('resize', handleResize);
+        
+        // Initialisation
+        handleResize();
+        
+        // Mise en surbrillance du lien actif
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const navLinksList = document.querySelectorAll('.nav-links a');
+        
+        navLinksList.forEach(link => {
+            const linkPage = link.getAttribute('href').split('/').pop();
+            if (linkPage === currentPage || 
+                (currentPage === '' && linkPage === 'index.html') ||
+                (currentPage.includes(linkPage.replace('.html', '')) && linkPage !== 'index.html')) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>

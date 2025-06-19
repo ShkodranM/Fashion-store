@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez notre collection de vêtements tendance pour hommes et femmes. Livraison rapide et retours gratuits.">
+    <title>Boutique - Fashion Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/boutique.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Styles de la barre de navigation -->
+    <style>
+        /* Styles de la barre de navigation */
+        .navbar {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 0 20px;
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.8rem;
+            color: #ff6b6b;
+        }
+
+        /* Liens de navigation */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            position: relative;
+            margin: 0 10px;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #ff6b6b;
+        }
+
+        /* Menu déroulant */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+        }
+
+        .dropdown-menu a {
+            padding: 10px 20px;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f8f9fa;
+        }
+
+        /* Icônes d'action */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-icon {
+            background: none;
+            border: none;
+            color: #333;
+            font-size: 1.2rem;
+            margin-left: 15px;
+            cursor: pointer;
+            position: relative;
+            padding: 5px;
+        }
+
+        .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #ff6b6b;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Menu mobile */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* Styles responsifs */
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #fff;
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 5px 0;
+                text-align: center;
+            }
+
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                display: none;
+                padding: 0;
+                margin-top: 5px;
+            }
+
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-tshirt"></i>
+                <span>Fashion Store</span>
+            </a>
+            
+            <!-- Bouton menu mobile -->
+            <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- Liens de navigation -->
+            <ul class="nav-links" id="main-nav">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="a-propos.html">À propos</a></li>
+                <li class="dropdown">
+                    <a href="boutique.html">Boutique <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="boutique.html?category=hommes">Hommes</a></li>
+                        <li><a href="boutique.html?category=femmes">Femmes</a></li>
+                        <li><a href="boutique.html?category=enfants">Enfants</a></li>
+                        <li><a href="boutique.html?category=nouveautes">Nouveautés</a></li>
+                        <li><a href="boutique.html?category=promotions">Promotions</a></li>
+                    </ul>
+                </li>
+                <li><a href="services.html">Services client</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <!-- Icônes d'action -->
+            <div class="nav-actions">
+                <button class="btn-icon" aria-label="Favoris">
+                    <i class="far fa-heart"></i>
+                    <span class="badge">0</span>
+                </button>
+                <button class="btn-icon" aria-label="Panier">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <div style="margin-top: 80px;"> <!-- Marge pour compenser la navbar fixe -->
+
+    <main>
+        <h1>Notre Collection</h1>
+        
+        <!-- Filtres -->
+        <div class="filters">
+            <div class="filter-group">
+                <h3>Catégories</h3>
+                <div class="filter-options">
+                    <button class="filter-option active" data-filter="all">Tous</button>
+                    <button class="filter-option" data-filter="new">Nouveautés</button>
+                    <button class="filter-option" data-filter="bestsellers">Meilleures ventes</button>
+                    <button class="filter-option" data-filter="sale">Promotions</button>
+                </div>
+            </div>
+            <div class="filter-group">
+                <h3>Trier par</h3>
+                <div class="filter-options">
+                    <select class="sort-select">
+                        <option value="popular">Popularité</option>
+                        <option value="price-asc">Prix croissant</option>
+                        <option value="price-desc">Prix décroissant</option>
+                        <option value="newest">Plus récent</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Grille de produits -->
+        <div class="products">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-badge new">Nouveau</div>
+                <img src="/images/tshirt.jpg" alt="T-shirt Blanc Classique">
+                <div class="product-info">
+                    <span class="product-category">Hauts</span>
+                    <h3>T-shirt Blanc Classique</h3>
+                    <div class="price">29,99 €</div>
+                    <p>Un t-shirt en coton bio d'une douceur exceptionnelle, parfait pour toutes les occasions.</p>
+                    <div class="product-actions">
+                        <button class="primary"><i class="fas fa-shopping-cart"></i> Ajouter</button>
+                        <button class="secondary"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-badge sale">-20%</div>
+                <img src="/images/pentalon.jpg"alt="Jean Slim Noir">
+                <div class="product-info">
+                    <span class="product-category">Pantalons</span>
+                    <h3>Jean Slim Noir</h3>
+                    <div class="price">59,99 € <span class="old-price">74,99 €</span></div>
+                    <p>Un jean élégant et confortable qui sublime la silhouette. Coupe parfaite et résistance garantie.</p>
+                    <div class="product-actions">
+                        <button class="primary"><i class="fas fa-shopping-cart"></i> Ajouter</button>
+                        <button class="secondary"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-badge new">Nouveau</div>
+                <img src="/images/robes.jpg" alt="Robe d'Été Fleurie">
+                <div class="product-info">
+                    <span class="product-category">Robes</span>
+                    <h3>Robe d'Été Fleurie</h3>
+                    <div class="price">49,99 €</div>
+                    <p>Une robe légère et fluide, parfaite pour les journées ensoleillées. Tissu respirant et coupe flatteuse.</p>
+                    <div class="product-actions">
+                        <button class="primary"><i class="fas fa-shopping-cart"></i> Ajouter</button>
+                        <button class="secondary"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <img src="/images/vestes.jpg" alt="Veste en Cuir">
+                <div class="product-info">
+                    <span class="product-category">Vestes</span>
+                    <h3>Veste en Cuir</h3>
+                    <div class="price">199,99 €</div>
+                    <p>Une veste en cuir véritable qui allie élégance et durabilité. Un classique intemporel de toute garde-robe.</p>
+                    <div class="product-actions">
+                        <button class="primary"><i class="fas fa-shopping-cart"></i> Ajouter</button>
+                        <button class="secondary"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-badge sale">-15%</div>
+                <img src="/images/pull.jpg"alt="Pull en Laine Mérinos">
+                <div class="product-info">
+                    <span class="product-category">Pulls</span>
+                    <h3>Pull en Laine Mérinos</h3>
+                    <div class="price">79,99 € <span class="old-price">94,99 €</span></div>
+                    <p>Un pull chaud et doux en laine mérinos de qualité supérieure. Confort inégalé pour l'hiver.</p>
+                    <div class="product-actions">
+                        <button class="primary"><i class="fas fa-shopping-cart"></i> Ajouter</button>
+                        <button class="secondary"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <img src="/images/chaussure.jpg" alt="Chaussures Basses en Cuir">
+                <div class="product-info">
+                    <span class="product-category">Chaussures</span>
+                    <h3>Chaussures Basses en Cuir</h3>
+                    <div class="price">129,99 €</div>
+                    <p>Des chaussures élégantes et confortables en cuir pleine fleur. Semelle souple et doublure en cuir.</p>
+                    <div class="product-actions">
+                        <button class="primary"><i class="fas fa-shopping-cart"></i> Ajouter</button>
+                        <button class="secondary"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Produit 7 -->
+            <div class="product-card">
+                <div class="product-badge new">Nouveau</div>
+                <img src="/images/vestes.jpg" alt="Veste en Jean Délavé">
+                <div class="product-info">
+                    <span class="product-category">Vestes</span>
+                    <h3>Veste en Jean Délavé</h3>
+                    <div class="price">89,99 €</div>
+                    <p>Une veste en jean délavé au style décontracté. Parfaite pour ajouter une touche décontractée à votre tenue.</p>
+                    <div class="product-actions">
+                        <button class="primary"><i class="fas fa-shopping-cart"></i> Ajouter</button>
+                        <button class="secondary"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Produit 8 -->
+            <div class="product-card">
+                <img src="/images/chemises.jpg" alt="Chemise à Carreaux">
+                <div class="product-info">
+                    <span class="product-category">Chemises</span>
+                    <h3>Chemise à Carreaux</h3>
+                    <div class="price">54,99 €</div>
+                    <p>Une chemise à carreaux élégante en coton bio. Coupe moderne et couleurs vives pour un style décontracté.</p>
+                    <div class="product-actions">
+                        <button class="primary"><i class="fas fa-shopping-cart"></i> Ajouter</button>
+                        <button class="secondary"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Produit 9 -->
+            <div class="product-card">
+                <div class="product-badge sale">-30%</div>
+                <img src="/images/robes.jpg"alt="Robe de Soirée Longue">
+                <div class="product-info">
+                    <span class="product-category">Robes de Soirée</span>
+                    <h3>Robe de Soirée Longue</h3>
+                    <div class="price">149,99 € <span class="old-price">214,99 €</span></div>
+                    <p>Une robe de soirée élégante qui vous fera briller. Coupe ajustée et tissu fluide pour une silhouette parfaite.</p>
+                    <div class="product-actions">
+                        <button class="primary"><i class="fas fa-shopping-cart"></i> Ajouter</button>
+                        <button class="secondary"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pagination -->
+        <div class="pagination">
+            <a href="#" class="disabled"><i class="fas fa-chevron-left"></i></a>
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#"><i class="fas fa-chevron-right"></i></a>
+        </div>
+    </main>
+
+    
+    <footer class="main-footer">
+        <div class="footer-content">
+            <!-- Colonne 1 : À propos -->
+            <div class="footer-section">
+                <h3>À propos de nous</h3>
+                <p>Fashion Store est votre destination mode en ligne, offrant les dernières tendances à des prix accessibles depuis 2020.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+
+            <!-- Colonne 2 : Liens rapides -->
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="boutique.html">Boutique</a></li>
+                    <li><a href="a-propos.html">À propos</a></li>
+                    <li><a href="services.html">Services client</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Nouveautés</a></li>
+                    <li><a href="#">Meilleures ventes</a></li>
+                </ul>
+            </div>
+
+            <!-- Colonne 3 : Contact et mentions légales -->
+            <div class="footer-section">
+                <h3>Contact & Infos</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Rue de la Mode, 75001 Paris</p>
+                    <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+                    <p><i class="fas fa-envelope"></i> contact@fashionstore.com</p>
+                </div>
+                <div class="legal-links">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">CGV</a>
+                    <a href="#">CGU</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Fashion Store. Tous droits réservés.</p>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa" title="Visa"></i>
+                <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                <i class="fab fa-cc-paypal" title="PayPal"></i>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts JavaScript -->
+    <script src="js/include-navbar.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/boutique.js"></script>
+    </div>
+    
+</body>
+</html>

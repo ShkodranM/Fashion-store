@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contactez l'équipe de Fashion Store pour toute question, suggestion ou demande d'assistance. Nous sommes à votre écoute !">
+    <title>Contact - Fashion Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Styles de la barre de navigation -->
+    <style>
+        /* Styles de la barre de navigation */
+        .navbar {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 0 20px;
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.8rem;
+            color: #ff6b6b;
+        }
+
+        /* Liens de navigation */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            position: relative;
+            margin: 0 10px;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #ff6b6b;
+        }
+
+        /* Menu déroulant */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+        }
+
+        .dropdown-menu a {
+            padding: 10px 20px;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f8f9fa;
+        }
+
+        /* Icônes d'action */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-icon {
+            background: none;
+            border: none;
+            color: #333;
+            font-size: 1.2rem;
+            margin-left: 15px;
+            cursor: pointer;
+            position: relative;
+            padding: 5px;
+        }
+
+        .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #ff6b6b;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Menu mobile */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* Styles responsifs */
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #fff;
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 5px 0;
+                text-align: center;
+            }
+
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                display: none;
+                padding: 0;
+                margin-top: 5px;
+            }
+
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-tshirt"></i>
+                <span>Fashion Store</span>
+            </a>
+            
+            <!-- Bouton menu mobile -->
+            <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- Liens de navigation -->
+            <ul class="nav-links" id="main-nav">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="a-propos.html">À propos</a></li>
+                <li class="dropdown">
+                    <a href="boutique.html">Boutique <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="boutique.html?category=hommes">Hommes</a></li>
+                        <li><a href="boutique.html?category=femmes">Femmes</a></li>
+                        <li><a href="boutique.html?category=enfants">Enfants</a></li>
+                        <li><a href="boutique.html?category=nouveautes">Nouveautés</a></li>
+                        <li><a href="boutique.html?category=promotions">Promotions</a></li>
+                    </ul>
+                </li>
+                <li><a href="services.html">Services client</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <!-- Icônes d'action -->
+            <div class="nav-actions">
+                <button class="btn-icon" aria-label="Favoris">
+                    <i class="far fa-heart"></i>
+                    <span class="badge">0</span>
+                </button>
+                <button class="btn-icon" aria-label="Panier">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <div style="margin-top: 80px;"> <!-- Marge pour compenser la navbar fixe -->
+
+    <main>
+        <section class="contact">
+            <h1>Contactez-nous</h1>
+            <div class="contact-container">
+                <form id="contactForm" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="prenom">Prénom *</label>
+                            <input type="text" id="prenom" name="prenom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nom">Nom *</label>
+                            <input type="text" id="nom" name="nom" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Service souhaité *</label>
+                        <div class="select-wrapper">
+                            <i class="fas fa-chevron-down"></i>
+                            <select id="service" name="service" required>
+                                <option value="" disabled selected>Sélectionnez un service</option>
+                                <option value="service-client">Service client</option>
+                                <option value="commande">Suivi de commande</option>
+                                <option value="retour">Retour produit</option>
+                                <option value="sav">SAV et réparation</option>
+                                <option value="partenariat">Partenariat</option>
+                                <option value="autre">Autre demande</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Votre message *</label>
+                        <div class="textarea-wrapper">
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-footer">
+                        <div class="form-required">* Champs obligatoires</div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Envoyer le message
+                        </button>
+                    </div>
+                    
+                    <div id="formSuccess" class="form-message success">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h3>Message envoyé avec succès !</h3>
+                            <p>Nous vous répondrons dans les plus brefs délais.</p>
+                        </div>
+                    </div>
+                    
+                    <div id="formError" class="form-message error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <div>
+                            <h3>Une erreur est survenue</h3>
+                            <p>Veuillez réessayer ou nous contacter par téléphone.</p>
+                        </div>
+                    </div>
+                </form>
+                <div class="contact-info">
+                    <h2>Informations de contact</h2>
+                    <p><strong>Email :</strong> contact@fashionstore.com</p>
+                    <p><strong>Téléphone :</strong> +33 1 23 45 67 89</p>
+                    <p><strong>Adresse :</strong> 123 Rue de la Mode, 75001 Paris, France</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    
+    <footer class="main-footer">
+        <div class="footer-content">
+            <!-- Colonne 1 : À propos -->
+            <div class="footer-section">
+                <h3>À propos de nous</h3>
+                <p>Fashion Store est votre destination mode en ligne, offrant les dernières tendances à des prix accessibles depuis 2020.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+
+            <!-- Colonne 2 : Liens rapides -->
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="boutique.html">Boutique</a></li>
+                    <li><a href="a-propos.html">À propos</a></li>
+                    <li><a href="services.html">Services client</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Nouveautés</a></li>
+                    <li><a href="#">Meilleures ventes</a></li>
+                </ul>
+            </div>
+
+            <!-- Colonne 3 : Contact et mentions légales -->
+            <div class="footer-section">
+                <h3>Contact & Infos</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Rue de la Mode, 75001 Paris</p>
+                    <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+                    <p><i class="fas fa-envelope"></i> contact@fashionstore.com</p>
+                </div>
+                <div class="legal-links">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">CGV</a>
+                    <a href="#">CGU</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Fashion Store. Tous droits réservés.</p>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa" title="Visa"></i>
+                <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                <i class="fab fa-cc-paypal" title="PayPal"></i>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts JavaScript -->
+    <script src="js/include-navbar.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+    </div>
+    
+</body>
+</html>

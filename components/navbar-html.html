@@ -1,0 +1,44 @@
+-<!-- Barre de navigation -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="index.html" class="logo">
+            <i class="fas fa-tshirt"></i>
+            <span>Fashion Store</span>
+        </a>
+        
+        <!-- Bouton menu mobile -->
+        <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <!-- Liens de navigation -->
+        <ul class="nav-links" id="main-nav">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li class="dropdown">
+                <a href="boutique.html">Boutique <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="boutique.html?category=hommes">Hommes</a></li>
+                    <li><a href="boutique.html?category=femmes">Femmes</a></li>
+                    <li><a href="boutique.html?category=enfants">Enfants</a></li>
+                    <li><a href="boutique.html?category=nouveautes">Nouveautés</a></li>
+                    <li><a href="boutique.html?category=promotions">Promotions</a></li>
+                </ul>
+            </li>
+            <li><a href="services.html">Services client</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        
+        <!-- Icônes d'action -->
+        <div class="nav-actions">
+            <button class="btn-icon" aria-label="Favoris">
+                <i class="far fa-heart"></i>
+                <span class="badge">0</span>
+            </button>
+            <button class="btn-icon" aria-label="Panier">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="badge">0</span>
+            </button>
+        </div>
+    </div>
+</nav>
